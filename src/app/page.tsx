@@ -333,23 +333,51 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="rounded-2xl border border-[#E3D3EE] bg-white/70 py-6 sm:py-8">
-            <div className="flex items-center justify-center gap-8 px-6 sm:gap-12 sm:px-8">
-              <img
-                src="/images/partners/aws.png"
-                alt="AWS"
-                className="h-12 w-auto object-contain"
-              />
-              <img
-                src="/images/partners/darden.png"
-                alt="Darden"
-                className="h-12 w-auto object-contain"
-              />
-              <img
-                src="/images/partners/delta.png"
-                alt="Delta"
-                className="h-12 w-auto object-contain"
-              />
+          <div className="relative overflow-hidden rounded-2xl border border-[#E3D3EE] bg-white/70 py-6 sm:py-8">
+            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-[#F9F5FC] via-[#F9F5FC]/90 to-transparent sm:w-20" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-[#F9F5FC] via-[#F9F5FC]/90 to-transparent sm:w-20" />
+
+            <div className="group overflow-hidden">
+              <div className="flex w-max animate-partner-marquee items-center whitespace-nowrap group-hover:[animation-play-state:paused]">
+                {[0, 1].map((copyIndex) => (
+                  <div
+                    key={copyIndex}
+                    aria-hidden={copyIndex === 1}
+                    className="flex shrink-0 items-center"
+                  >
+                    {partnerLogos.map((logo) => {
+                      const partnerName = formatPartnerName(logo.fileName);
+                      const isEnlargedLogo = enlargedPartnerLogos.has(
+                        logo.fileName
+                      );
+                      const isExtraLargeLogo = extraLargePartnerLogos.has(
+                        logo.fileName
+                      );
+
+                      return (
+                        <div
+                          key={`${copyIndex}-${logo.fileName}`}
+                          className="flex h-16 min-w-[140px] items-center justify-center px-5 sm:h-20 sm:min-w-[180px] sm:px-8 lg:min-w-[220px]"
+                        >
+                          <img
+                            src={logo.src}
+                            alt={copyIndex === 0 ? `${partnerName} logo` : ''}
+                            className={`w-auto object-contain ${
+                              isExtraLargeLogo
+                                ? logo.fileName === 'astonmartin.png'
+                                  ? 'h-24 max-w-[320px] sm:h-[7rem] sm:max-w-[420px] lg:h-[9rem] lg:max-w-[560px]'
+                                  : 'h-20 max-w-[280px] sm:h-[6rem] sm:max-w-[360px] lg:h-[7.5rem] lg:max-w-[460px]'
+                                : isEnlargedLogo
+                                  ? 'h-12 max-w-[150px] sm:h-14 sm:max-w-[185px] lg:h-[4.5rem] lg:max-w-[230px]'
+                                  : 'h-10 max-w-[120px] sm:h-12 sm:max-w-[150px] lg:h-14 lg:max-w-[180px]'
+                            }`}
+                          />
+                        </div>
+                      );
+                    })}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
