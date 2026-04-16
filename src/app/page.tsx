@@ -346,11 +346,11 @@ export default function Home() {
                     className="flex shrink-0 items-center"
                   >
                     {partnerLogos.map((logo) => {
-                      const partnerName = formatPartnerName(logo.fileName);
-                      const isEnlargedLogo = enlargedPartnerLogos.has(
+                      const partnerName = formatpartnerName(logo.fileName);
+                      const isEnlargedLogo = enlargedpartnerLogos.has(
                         logo.fileName
                       );
-                      const isExtraLargeLogo = extraLargePartnerLogos.has(
+                      const isExtraLargeLogo = extraLargepartnerLogos.has(
                         logo.fileName
                       );
 
