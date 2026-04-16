@@ -95,7 +95,7 @@ const homepageServices = [
   },
 ];
 
-const enlargedPartnerLogos = new Set([
+const enlargedpartnerLogos = new Set([
   'astonmartin.png',
   'fontainbleau.png',
   'marriott.png',
@@ -103,7 +103,7 @@ const enlargedPartnerLogos = new Set([
   'orlandomagic.png',
 ]);
 
-const extraLargePartnerLogos = new Set(['astonmartin.png', 'marriott.png']);
+const extraLargepartnerLogos = new Set(['astonmartin.png', 'marriott.png']);
 
 const formatProjectTitle = (fileName: string) =>
   fileName
@@ -115,7 +115,7 @@ const formatProjectTitle = (fileName: string) =>
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
     .join(' ');
 
-const formatPartnerName = (fileName: string) =>
+const formatpartnerName = (fileName: string) =>
   fileName
     .replace(/\.[^/.]+$/, '')
     .replace(/([a-z])([A-Z])/g, '$1 $2')
