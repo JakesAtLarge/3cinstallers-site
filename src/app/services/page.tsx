@@ -6,14 +6,15 @@ import { useState } from 'react';
 
 const services = [
   {
-    slug: 'wall-graphics-installation',
-    title: 'Wall Graphics Installation',
+    slug: 'wall-mounted-installation',
+    title: 'Wall Mounted Installation',
     description:
-      'Professional installation of branded wall graphics and murals for offices, retail spaces, and commercial interiors.',
+      'Professional installation of wall-mounted pieces including edged artwork, framed displays, paintings, and 3D installations for commercial interiors.',
     folder: 'Wall Graphics Installation',
     images: [
       'IMG_9400.jpeg',
       '5b3cadbd-00b0-49a0-aac6-3af102593ec2.JPG',
+      'b8aeecc4-b56d-41bb-8ca9-256eaea732e0.JPG',
       'IMG_2429.jpg',
       'IMG_2470.jpeg',
       'IMG_9394.jpeg',
@@ -22,14 +23,16 @@ const services = [
   },
   {
     slug: 'vinyl-graphics-installation',
-    title: 'Vinyl Graphics Installation',
+    title: 'Wall & Floor Graphic Installation',
     description:
-      'Precise application of vinyl graphics for smooth, durable results across a wide range of surfaces.',
+      'Expert installation for wall and floor graphics, vinyl, wallpaper, murals, and other specialty surface applications across commercial and branded spaces.',
     folder: 'Vinyl Graphics Installation',
     images: [
+      '00c9b48e-4505-4754-bf2d-3ef3a427ccef (1).JPG',
       '150546ee-8ea7-4300-b39e-8b8e7092a343.JPG',
       '1977aa26-5468-471b-bbd7-ad0d13c3294b.JPG',
       'e5b62284-0fee-4fce-bc31-a4df1fc5c355.JPG',
+      'e72f07d5-8e88-49c1-8b9e-70a5bd6ca75c (1).JPG',
     ],
   },
   {
@@ -38,7 +41,7 @@ const services = [
     description:
       'Clean, polished decal installation for storefronts, entryways, and interior glass partitions.',
     folder: 'Window&Glass Decals',
-    images: ['Amazon big wall.jpg', 'Datadog.jpg'],
+    images: ['Amazon big wall.jpg', 'Datadog.jpg', 'IMG_4352.jpg'],
   },
   {
     slug: 'banners-signage-installation',
@@ -46,13 +49,15 @@ const services = [
     description:
       'Secure installation of banners, promotional signage, and branded display materials for business environments.',
     folder: 'Banners & Signage Installation',
-    images: ['IMG_1912 (1).jpg'],
+    images: ['IMG_1912 (1).jpg', 'IMG_2937.jpg', 'IMG_2939.jpg'],
   },
   {
     slug: 'retail-commercial-graphic-installs',
-    title: 'Retail / Commercial Graphic Installs',
+    title: 'Fleet Graphic Installs',
     description:
-      'Reliable rollout support for retail, restaurant, office, and multi-site commercial graphic programs.',
+      'Professional installation of wraps and graphics for company vehicles, trucks, fleets, and other mobile branded assets.',
+    folder: 'Fleet Graphic Installs',
+    images: ['IMG_8792.jpg'],
   },
   {
     slug: 'interior-branding-graphics',
@@ -142,10 +147,7 @@ function ServiceGallery({
         )}
       </div>
 
-      <div className="mt-4 flex items-center justify-between gap-4 px-1">
-        <p className="text-sm font-medium text-[#7A3F91]">
-          {activeIndex + 1} / {images.length}
-        </p>
+      <div className="mt-4 flex items-center justify-center gap-2 px-1">
         <div className="flex items-center gap-2">
           {images.map((imageName, imageIndex) => (
             <button
@@ -235,7 +237,7 @@ export default function ServicesPage() {
             <div className="space-y-24">
               {services.map((service, index) => (
                 <div
-                  key={service.title}
+                  key={service.slug}
                   id={service.slug}
                   className={`scroll-mt-32 flex flex-col items-stretch gap-6 lg:flex-row lg:gap-10 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
                 >

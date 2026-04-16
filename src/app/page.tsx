@@ -4,7 +4,7 @@ import { Oswald } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FormEvent, useEffect, useState } from 'react';
-import printNetworkImage from '../../public/images/printnetwork2.png';
+import partnerNetworkImage from '../../public/images/partnernetwork.png';
 
 const recentProjects = [
   'Darden Restaurant Support Center.jpg',
@@ -46,16 +46,16 @@ const partnerLogos = [
 
 const homepageServices = [
   {
-    slug: 'wall-graphics-installation',
-    title: 'Wall Graphics Installation',
+    slug: 'wall-mounted-installation',
+    title: 'Wall Mounted Installation',
     description:
-      'Professional installation of branded wall graphics and murals for offices, retail spaces, and commercial interiors.',
+      'Professional installation of wall-mounted pieces including edged artwork, framed displays, paintings, and 3D installations for commercial interiors.',
   },
   {
     slug: 'vinyl-graphics-installation',
-    title: 'Vinyl Graphics Installation',
+    title: 'Wall & Floor Graphic Installation',
     description:
-      'Precise application of vinyl graphics for smooth, durable results across a wide range of surfaces.',
+      'Expert installation for wall and floor graphics, vinyl, wallpaper, murals, and other specialty surface applications across commercial and branded spaces.',
   },
   {
     slug: 'window-glass-decals',
@@ -71,9 +71,9 @@ const homepageServices = [
   },
   {
     slug: 'retail-commercial-graphic-installs',
-    title: 'Retail / Commercial Graphic Installs',
+    title: 'Fleet Graphic Installs',
     description:
-      'Reliable rollout support for retail, restaurant, office, and multi-site commercial graphic programs.',
+      'Professional installation of wraps and graphics for company vehicles, trucks, fleets, and other mobile branded assets.',
   },
   {
     slug: 'interior-branding-graphics',
@@ -391,18 +391,17 @@ export default function Home() {
               More than just installation - let us join you through the whole
               process
             </h2>
-            <p className="mx-auto mt-5 max-w-3xl text-lg leading-relaxed text-[#7A3F91] sm:text-xl">
+            <p className="mx-auto mt-5 max-w-3xl text-[1.45rem] leading-relaxed text-[#7A3F91] sm:text-[1.75rem]">
               With nationwide and even international locations, we can bring
-              your vision to life from inception to printing and finally
-              installation. We can be with you throughout the entire project.
+              your vision to life from inception to installation.
             </p>
           </div>
 
           <div className="mt-10 sm:mt-12">
             <div className="mx-auto max-w-3xl overflow-hidden rounded-[1.75rem] border border-[#E7D9EF] bg-[#F9F5FC] p-3 shadow-[0_20px_60px_rgba(43,13,62,0.08)] sm:p-5">
               <Image
-                src={printNetworkImage}
-                alt="3Cinstallers print network map"
+                src={partnerNetworkImage}
+                alt="3Cinstallers partner network map"
                 className="h-auto w-full rounded-[1.25rem] object-contain"
                 priority
               />
@@ -676,14 +675,13 @@ export default function Home() {
               <ul className="space-y-2 text-sm text-gray-400">
                 <li>Phone: (123) 456-7890</li>
                 <li>Email: info@3cinstallers.com</li>
-                <li>Located in Your City</li>
               </ul>
             </div>
           </div>
 
           {/* Bottom Bar */}
           <div className="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
-            <p>&copy; 2024 3Cinstallers. All rights reserved.</p>
+            <p>&copy; 2022 3Cinstallers. All rights reserved.</p>
           </div>
         </div>
       </footer>
