@@ -334,17 +334,21 @@ export default function Home() {
           </div>
 
           <div className="relative overflow-hidden rounded-2xl border border-[#E3D3EE] bg-white/70 py-6 sm:py-8">
-            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-[#F9F5FC] via-[#F9F5FC]/90 to-transparent sm:w-20" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-[#F9F5FC] via-[#F9F5FC]/90 to-transparent sm:w-20" />
-
-            <div className="group overflow-hidden">
-              <div className="flex w-max animate-partner-marquee items-center whitespace-nowrap group-hover:[animation-play-state:paused]">
+            <div className="group relative">
+              <div className="relative z-10 flex w-max animate-partner-marquee items-center whitespace-nowrap group-hover:[animation-play-state:paused]">
                 {[0, 1].map((copyIndex) => (
                   <div
                     key={copyIndex}
                     aria-hidden={copyIndex === 1}
                     className="flex shrink-0 items-center"
                   >
+                    <div className="flex h-16 min-w-[140px] items-center justify-center px-5 sm:h-20 sm:min-w-[180px] sm:px-8 lg:min-w-[220px]">
+                      <img
+                        src="/images/partners/darden.png"
+                        alt="Darden"
+                        className="h-12 w-auto"
+                      />
+                    </div>
                     {partnerLogos.map(({ fileName, src }) => {
                       const partnerName = formatPartnerName(fileName);
                       const isEnlargedLogo = enlargedPartnerLogos.has(fileName);
@@ -378,6 +382,8 @@ export default function Home() {
                   </div>
                 ))}
               </div>
+              <div className="pointer-events-none absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-[#F9F5FC] via-[#F9F5FC]/90 to-transparent sm:w-20" />
+              <div className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-[#F9F5FC] via-[#F9F5FC]/90 to-transparent sm:w-20" />
             </div>
           </div>
         </div>
