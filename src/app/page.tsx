@@ -304,7 +304,7 @@ export default function Home() {
                 INSTALLING
               </span>
               <span className="block text-6xl sm:text-7xl lg:text-8xl xl:text-9xl">
-                PERFECTION
+                EXCELLENCE
               </span>
             </h1>
             <div className="flex justify-center">
