@@ -16,24 +16,33 @@ const recentProjects = [
 ];
 
 const partnerLogos = [
-  'adventhealth.png',
-  'astonmartin.png',
-  'aws.png',
-  'darden.png',
-  'delta.png',
-  'disney.png',
-  'F1.png',
-  'faena.png',
-  'fontainbleau.png',
-  'marriott.png',
-  'miamidolphins.png',
-  'miamihurricanes.png',
-  'orlandomagic.png',
-  'royalcaribbean.png',
-  'thebreakers.png',
-  'UCF.png',
-  'universalflorida.png',
-];
+  { fileName: 'adventhealth.png', src: '/images/partners/adventhealth.png' },
+  { fileName: 'astonmartin.png', src: '/images/partners/astonmartin.png' },
+  { fileName: 'aws.png', src: '/images/partners/aws.png' },
+  { fileName: 'darden.png', src: '/images/partners/darden.png' },
+  { fileName: 'delta.png', src: '/images/partners/delta.png' },
+  { fileName: 'disney.png', src: '/images/partners/disney.png' },
+  { fileName: 'F1.png', src: '/images/partners/F1.png' },
+  { fileName: 'faena.png', src: '/images/partners/faena.png' },
+  { fileName: 'fontainbleau.png', src: '/images/partners/fontainbleau.png' },
+  { fileName: 'marriott.png', src: '/images/partners/marriott.png' },
+  { fileName: 'miamidolphins.png', src: '/images/partners/miamidolphins.png' },
+  {
+    fileName: 'miamihurricanes.png',
+    src: '/images/partners/miamihurricanes.png',
+  },
+  { fileName: 'orlandomagic.png', src: '/images/partners/orlandomagic.png' },
+  {
+    fileName: 'royalcaribbean.png',
+    src: '/images/partners/royalcaribbean.png',
+  },
+  { fileName: 'thebreakers.png', src: '/images/partners/thebreakers.png' },
+  { fileName: 'UCF.png', src: '/images/partners/UCF.png' },
+  {
+    fileName: 'universalflorida.png',
+    src: '/images/partners/universalflorida.png',
+  },
+] as const;
 
 const homepageServices = [
   {
@@ -209,9 +218,11 @@ export default function Home() {
       setName('');
       setEmail('');
       setMessage('');
-    } catch (error: any) {
+    } catch (error: unknown) {
+      const message =
+        error instanceof Error ? error.message : 'Failed to send message.';
       setStatus('error');
-      setErrorMessage(error?.message || 'Failed to send message.');
+      setErrorMessage(message);
     } finally {
       setLoading(false);
     }
@@ -334,24 +345,25 @@ export default function Home() {
                     aria-hidden={copyIndex === 1}
                     className="flex shrink-0 items-center"
                   >
-                    {partnerLogos.map((logo) => {
-                      const partnerName = formatPartnerName(logo);
-                      const isEnlargedLogo = enlargedPartnerLogos.has(logo);
-                      const isExtraLargeLogo = extraLargePartnerLogos.has(logo);
+                    {partnerLogos.map(({ fileName, src }) => {
+                      const partnerName = formatPartnerName(fileName);
+                      const isEnlargedLogo = enlargedPartnerLogos.has(fileName);
+                      const isExtraLargeLogo =
+                        extraLargePartnerLogos.has(fileName);
 
                       return (
                         <div
-                          key={`${copyIndex}-${logo}`}
+                          key={`${copyIndex}-${fileName}`}
                           className="flex h-16 min-w-[140px] items-center justify-center px-5 sm:h-20 sm:min-w-[180px] sm:px-8 lg:min-w-[220px]"
                         >
                           <Image
-                            src={`/images/Partners/${encodeURIComponent(logo)}`}
+                            src={src}
                             alt={copyIndex === 0 ? `${partnerName} logo` : ''}
                             width={180}
                             height={80}
                             className={`w-auto object-contain ${
                               isExtraLargeLogo
-                                ? logo === 'astonmartin.png'
+                                ? fileName === 'astonmartin.png'
                                   ? 'h-24 max-w-[320px] sm:h-[7rem] sm:max-w-[420px] lg:h-[9rem] lg:max-w-[560px]'
                                   : 'h-20 max-w-[280px] sm:h-[6rem] sm:max-w-[360px] lg:h-[7.5rem] lg:max-w-[460px]'
                                 : isEnlargedLogo
